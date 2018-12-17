@@ -1,0 +1,10 @@
+pytest
+markdown
+lxml
+pyenchant
+jupyter
+matplotlib
+ipywidgets
+numpy
+scipy
+pandas
