@@ -73,7 +73,14 @@ class Test_notebooks(object):
     _expected_error_markup = 'simpleitk_error_expected'
 
     @pytest.mark.parametrize('notebook_file_name',
-                             ['setup.ipynb'])
+                             ['setup.ipynb',
+                              '01_spatial_transformations.ipynb',
+                              '02_images_and_resampling.ipynb',
+                              '03_data_augmentation.ipynb',
+                              '04_basic_registration.ipynb',
+                              '05_advanced_registration.ipynb',
+                              pytest.param('06_segmentation_and_shape_analysis.ipynb', marks=pytest.mark.skipif(os.environ.get('CIRCLECI')=='true', \
+                              reason="runtime too long for CircleCI"))])
     def test_python_notebook(self, notebook_file_name):
        self.evaluate_notebook(self.absolute_path_python(notebook_file_name), 'python')
 
@@ -218,7 +225,7 @@ class Test_notebooks(object):
                     '--execute',
                     '--ExecutePreprocessor.kernel_name='+kernel_name, 
                     '--ExecutePreprocessor.allow_errors=True',
-                    '--ExecutePreprocessor.timeout=600', # seconds till timeout 
+                    '--ExecutePreprocessor.timeout=600', # seconds till timeout
                     '--output', fout.name, path]
             subprocess.check_call(args)
             nb = nbformat.read(fout.name, nbformat.current_nbformat)
