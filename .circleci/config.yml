@@ -36,7 +36,6 @@ jobs:
             sudo pip install virtualenv
             virtualenv ~/sitkpy --no-site-packages
             ~/sitkpy/bin/pip install -r tests/requirements_testing.txt
-            ~/sitkpy/bin/pip install -i https://github.com/SimpleITK/SimpleITK/releases/tag/v1.2rc1 simpleitk
             ~/sitkpy/bin/jupyter nbextension enable --py --sys-prefix widgetsnbextension
 
       - run:
