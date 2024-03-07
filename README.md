@@ -6,4 +6,4 @@
 
 
 This repository contains all of the material presented at the SPIE Medical
-Imaging 2019 conference, and the course's [website](https://SimpleITK.github.io/SPIE2019_COURSE/).
+Imaging 2019 conference, and the course's website.
